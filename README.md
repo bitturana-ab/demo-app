@@ -1,5 +1,7 @@
 # Welcome to your Expo app 👋
 
+## app-example contains moved files that are boilderplate code from react-native with Expo framework so avoid that folder and enjoy 
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
