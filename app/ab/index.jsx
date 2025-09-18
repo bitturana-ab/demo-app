@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-
+import { Link } from "react-native";
 export default function index() {
   return (
     <View
@@ -10,6 +10,7 @@ export default function index() {
       }}
     >
       <Text>ab page</Text>
+      {/* <Link href="/">Go to home</Link> */}
     </View>
   );
 }
