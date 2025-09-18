@@ -30,6 +30,7 @@ export default function Index() {
 
       <Link href="/users/ab">user 1</Link>
       <Link href="/users/yourname">user you</Link>
+      <Link href="/modal">Open modal</Link>
     </SafeAreaView>
   );
 }

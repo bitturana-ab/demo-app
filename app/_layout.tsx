@@ -8,10 +8,38 @@ import {
 } from "expo-router/unstable-native-tabs";
 import { Drawer } from "expo-router/drawer";
 
+export function Model() {
+  return (
+    <Stack>
+      <Stack.Screen name="index" />
+      <Stack.Screen
+        name="modal"
+        options={{
+          presentation: "modal",
+        }}
+      />
+    </Stack>
+  );
+}
 export default function RootLayout() {
   return (
     <>
-      <Drawer />
+      <Drawer>
+        <Drawer.Screen
+          name="index" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "Home",
+            title: "overview",
+          }}
+        />
+        <Drawer.Screen
+          name="user/[id]" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "User",
+            title: "overview",
+          }}
+        />
+      </Drawer>
     </>
   );
 }
