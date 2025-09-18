@@ -1,6 +1,7 @@
 import { Image, ImageBackground } from "expo-image";
 import { Link } from "expo-router";
 import { hide } from "expo-splash-screen";
+import React from "react";
 import {
   Text,
   View,
@@ -9,10 +10,23 @@ import {
   Button,
   TouchableHighlight,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import {
+  FlatList,
+  RefreshControl,
+  ScrollView,
+  TextInput,
+} from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
   // detect system mode
   const colorScheme = useColorScheme();
   if (colorScheme == "dark") {
@@ -28,7 +42,13 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Sanjay home page</Text>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <Text>Pull down to see RefreshControl indicator</Text>
+      </ScrollView>
       <TouchableHighlight underlayColor="white">
         <Link href="/ab">
           <Button title="Go to ab" />
@@ -46,7 +66,10 @@ export default function Index() {
           eveniet iste quidem sapiente. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Dignissimos necessitatibus, autem ipsa veniam quis
           modi hic mollitia ducimus maiores sequi, commodi vitae recusandae
-          velit laudantium asperiores fugit voluptates magni aspernatur! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ad incidunt ut dolorum animi veritatis debitis, atque sed enim, facere placeat a eaque, omnis officia? Autem, nihil officiis! Ducimus, consequatur?
+          velit laudantium asperiores fugit voluptates magni aspernatur! Lorem
+          ipsum dolor sit amet consectetur, adipisicing elit. Quo ad incidunt ut
+          dolorum animi veritatis debitis, atque sed enim, facere placeat a
+          eaque, omnis officia? Autem, nihil officiis! Ducimus, consequatur?
         </Text>
         <ImageBackground
           source={{
@@ -70,7 +93,7 @@ export default function Index() {
           />
         </ImageBackground>
       </ScrollView>
-
+      <TextInput placeholder="enter phone number" keyboardType="numeric" />
       <Link href="/users/ab">user 1</Link>
       <Link href="/users/yourname">user you</Link>
       <Link href="/modal">Open modal</Link>
