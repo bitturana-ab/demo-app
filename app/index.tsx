@@ -1,6 +1,14 @@
 import { Image, ImageBackground } from "expo-image";
 import { Link } from "expo-router";
-import { Text, View, Appearance, useColorScheme, Button } from "react-native";
+import { hide } from "expo-splash-screen";
+import {
+  Text,
+  View,
+  Appearance,
+  useColorScheme,
+  Button,
+  TouchableHighlight,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -20,9 +28,11 @@ export default function Index() {
       }}
     >
       <Text>Sanjay home page</Text>
-      <Link href="/ab">
-        <Button title="Go to ab" />
-      </Link>
+      <TouchableHighlight underlayColor="white">
+        <Link href="/ab">
+          <Button title="Go to ab" />
+        </Link>
+      </TouchableHighlight>
 
       <ImageBackground
         source={{
@@ -30,10 +40,12 @@ export default function Index() {
         }}
         style={{ width: " 90%", height: " 80%" }}
       >
-        <Image
-          source={require("../assets/images/icon.png")}
-          style={{ width: 250, height: 250 }}
-        />
+        <TouchableHighlight underlayColor="red" onLongPress={hide}>
+          <Image
+            source={require("../assets/images/icon.png")}
+            style={{ width: 250, height: 250 }}
+          />
+        </TouchableHighlight>
         <Text>You can write here</Text>
         <Image
           source={{
