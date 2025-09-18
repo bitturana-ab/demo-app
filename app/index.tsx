@@ -1,4 +1,4 @@
-import { Image } from "expo-image";
+import { Image, ImageBackground } from "expo-image";
 import { Link } from "expo-router";
 import { Text, View, Appearance, useColorScheme, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,21 +23,26 @@ export default function Index() {
       <Link href="/ab">
         <Button title="Go to ab" />
       </Link>
-      <Image
-        source={require("../assets/images/icon.png")}
-        style={{ width: 250, height: 250 }}
-      />
-      <Image
+
+      <ImageBackground
         source={{
           uri: "https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D",
         }}
-        style={{ width: 400, height: 400 }}
-      />
-
-      <Image
-        source={{ uri: "https://reactjs.org/logo-og.png" }}
-        style={{ width: 300, height: 300 }}
-      />
+        style={{ width: " 90%", height: " 80%" }}
+      >
+        <Image
+          source={require("../assets/images/icon.png")}
+          style={{ width: 250, height: 250 }}
+        />
+        <Text>You can write here</Text>
+        <Image
+          source={{
+            uri: "https://reactjs.org/logo-og.png",
+            // cache: "only-if-cached",
+          }}
+          style={{ width: 300, height: 300 }}
+        />
+      </ImageBackground>
 
       <Link href="/users/ab">user 1</Link>
       <Link href="/users/yourname">user you</Link>
