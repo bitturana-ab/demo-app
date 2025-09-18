@@ -1,6 +1,6 @@
 import { Image } from "expo-image";
 import { Link } from "expo-router";
-import { Text, View, Appearance, useColorScheme } from "react-native";
+import { Text, View, Appearance, useColorScheme, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -20,11 +20,14 @@ export default function Index() {
       }}
     >
       <Text>Sanjay home page</Text>
-      <Link href="/ab">Visit AB</Link>
+      <Link href="/ab">
+        <Button title="Go to ab" />
+      </Link>
       <Image
         source={require("../assets/images/icon.png")}
         style={{ width: 250, height: 250 }}
       />
+
       <Link href="/users/ab">user 1</Link>
       <Link href="/users/yourname">user you</Link>
     </SafeAreaView>
